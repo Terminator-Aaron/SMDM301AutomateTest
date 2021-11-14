@@ -4,7 +4,7 @@
     "parameters": {
         "serverName": {
             "type": "string",
-            "defaultValue": "ARMCreateSqlServer",
+            "defaultValue": "ARMSqlServer2",
             "metadata": {
                 "description": "The name of the SQL logical server."
             }
@@ -131,6 +131,39 @@
                     }
                 }
             ]
+        },
+        {
+            "condition": "[parameters('enableADS')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "name": "[variables('storageName')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "properties": {
+                "minimumTlsVersion": "TLS1_2",
+                "supportsHttpsTrafficOnly": "true",
+                "allowBlobPublicAccess": "false"
+            }
+        },
+        {
+            "condition": "[parameters('enableADS')]",
+            "scope": "[concat('Microsoft.Storage/storageAccounts/', variables('storageName'))]",
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2020-04-01-preview",
+            "name": "[variables('uniqueRoleGuid')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('storageName'))]"
+            ],
+            "properties": {
+                "roleDefinitionId": "[variables('StorageBlobContributor')]",
+                "principalId": "[reference(resourceId('Microsoft.Sql/servers', parameters('serverName')), '2020-02-02-preview', 'Full').identity.principalId]",
+                "scope": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageName'))]",
+                "principalType": "ServicePrincipal"
+            }
         }
     ]
 }
