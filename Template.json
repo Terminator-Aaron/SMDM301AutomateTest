@@ -54,7 +54,7 @@
         }
     },
     "variables": {
-        "serverResourceGroupName": "apj-sqldb02-group",
+        "serverResourceGroupName": "TestARMDeployment",
         "subscriptionId": "26daa6fa-d94f-43de-986d-d2804bc3f045",
         "uniqueStorage": "[uniqueString(variables('subscriptionId'), variables('serverResourceGroupName'), parameters('location'))]",
         "storageName": "[tolower(concat('sqlva', variables('uniqueStorage')))]",
