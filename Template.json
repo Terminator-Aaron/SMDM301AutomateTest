@@ -4,7 +4,7 @@
     "parameters": {
         "serverName": {
             "type": "string",
-            "defaultValue": "ARMSqlServer2",
+            "defaultValue": "armsqlserver3",
             "metadata": {
                 "description": "The name of the SQL logical server."
             }
