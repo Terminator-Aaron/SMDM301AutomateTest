@@ -35,7 +35,7 @@
       },
       "storageAccountName": {
         "type": "string",
-        "defaultValue": "sqlvajck33epvxtvos",
+        "defaultValue": "smdmtrsa305",
         "metadata": {
           "description": "The name of the Storage Account"
         }
