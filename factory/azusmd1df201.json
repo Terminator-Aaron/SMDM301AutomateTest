@@ -1,0 +1,9 @@
+{
+	"name": "azusmd1df201",
+	"location": "eastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d5765b25-a164-4b2d-962c-f920c0dfbafe",
+		"tenantId": "97f55d35-1929-4acf-9c11-d7aaf05b6756"
+	}
+}

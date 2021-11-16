@@ -1,0 +1,35 @@
+{
+	"name": "DestinationDataset_efy",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MaintTeamSITDatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "FAILURE_CODE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FAILURE_CODE_TYPE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DESP",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Attunity_FailueCode"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

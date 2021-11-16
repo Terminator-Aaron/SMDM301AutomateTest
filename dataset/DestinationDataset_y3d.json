@@ -1,0 +1,44 @@
+{
+	"name": "DestinationDataset_y3d",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MaintTeamSITDatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "EQUIP_NO",
+				"type": "varchar"
+			},
+			{
+				"name": "EQUIP_CLASS_CD",
+				"type": "varchar"
+			},
+			{
+				"name": "EQUIP_CLASS_DESP",
+				"type": "varchar"
+			},
+			{
+				"name": "EQUIP_ID",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "PLAN_START_DATE",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "EQUIP_DESP",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Attunity_IMTE"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

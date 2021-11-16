@@ -1,0 +1,18 @@
+{
+	"name": "SourceDataset_cqaupload",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MainteamAzureBolbStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "smd-interface-smd-cqa"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

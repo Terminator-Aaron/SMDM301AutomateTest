@@ -1,0 +1,31 @@
+{
+	"name": "DestinationDataset_h3m",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MaintTeamSITDatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "WorkGroupNo",
+				"type": "nvarchar"
+			},
+			{
+				"name": "WorkGroupCode",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Attunity_WorkGroup"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

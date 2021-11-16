@@ -1,0 +1,27 @@
+{
+	"name": "DestinationDataset_qtp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MaintTeamSITDatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CarNo",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Attunity_Cart"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

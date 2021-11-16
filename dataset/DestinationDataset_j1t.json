@@ -1,0 +1,27 @@
+{
+	"name": "DestinationDataset_j1t",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MaintTeamSITDatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "BogieNo",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Attunity_Bogie"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
