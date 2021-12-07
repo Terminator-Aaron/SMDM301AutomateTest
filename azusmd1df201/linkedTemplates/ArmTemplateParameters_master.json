@@ -83,10 +83,10 @@
 		"Trigger_Attunity_EquipmentClassAssocCode_properties_CopyPipeline_Attunity_EquipmentClassAssocCode_parameters_windowEnd": {
 			"value": "@trigger().scheduledTime"
 		},
-		"Trigger_a3e_properties_Phase2A_CopyPipeline_CompleteWO_parameters_windowStart": {
+		"Trigger_a3e3_properties_Phase2A_CopyPipeline_CompleteWO_parameters_windowStart": {
 			"value": "@{addminutes(trigger().scheduledTime, -5)}"
 		},
-		"Trigger_a3e_properties_Phase2A_CopyPipeline_CompleteWO_parameters_windowEnd": {
+		"Trigger_a3e3_properties_Phase2A_CopyPipeline_CompleteWO_parameters_windowEnd": {
 			"value": "@trigger().scheduledTime"
 		},
 		"Trigger_brc_properties_Phase2A_CopyPipeline_FitDefitMent_parameters_windowStart": {

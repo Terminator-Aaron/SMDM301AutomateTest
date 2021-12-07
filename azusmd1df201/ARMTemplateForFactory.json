@@ -111,11 +111,11 @@
 			"type": "string",
 			"defaultValue": "@trigger().scheduledTime"
 		},
-		"Trigger_a3e_properties_Phase2A_CopyPipeline_CompleteWO_parameters_windowStart": {
+		"Trigger_a3e3_properties_Phase2A_CopyPipeline_CompleteWO_parameters_windowStart": {
 			"type": "string",
 			"defaultValue": "@{addminutes(trigger().scheduledTime, -5)}"
 		},
-		"Trigger_a3e_properties_Phase2A_CopyPipeline_CompleteWO_parameters_windowEnd": {
+		"Trigger_a3e3_properties_Phase2A_CopyPipeline_CompleteWO_parameters_windowEnd": {
 			"type": "string",
 			"defaultValue": "@trigger().scheduledTime"
 		},
@@ -5841,7 +5841,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Trigger_a3e')]",
+			"name": "[concat(parameters('factoryName'), '/Trigger_a3e3')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -5854,8 +5854,8 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"windowStart": "[parameters('Trigger_a3e_properties_Phase2A_CopyPipeline_CompleteWO_parameters_windowStart')]",
-							"windowEnd": "[parameters('Trigger_a3e_properties_Phase2A_CopyPipeline_CompleteWO_parameters_windowEnd')]"
+							"windowStart": "[parameters('Trigger_a3e3_properties_Phase2A_CopyPipeline_CompleteWO_parameters_windowStart')]",
+							"windowEnd": "[parameters('Trigger_a3e3_properties_Phase2A_CopyPipeline_CompleteWO_parameters_windowEnd')]"
 						}
 					}
 				],
