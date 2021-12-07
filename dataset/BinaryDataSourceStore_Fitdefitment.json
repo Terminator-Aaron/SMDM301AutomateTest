@@ -1,0 +1,19 @@
+{
+	"name": "BinaryDataSourceStore_Fitdefitment",
+	"properties": {
+		"description": "Connection to your data source store. ",
+		"linkedServiceName": {
+			"referenceName": "AzureBolbStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "smd-fitdefitmentfile"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

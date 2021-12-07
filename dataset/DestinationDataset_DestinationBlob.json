@@ -1,0 +1,19 @@
+{
+	"name": "DestinationDataset_DestinationBlob",
+	"properties": {
+		"description": "Connection to your data source store. ",
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageBackUp",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "root"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
