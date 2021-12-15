@@ -7,7 +7,7 @@
 		"typeProperties": {
 			"host": "\\\\Twdsmda201v\\smdm",
 			"userId": "mtrcorp\\smdtintf",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJiMjZlMDFhNy03NDE1LTRkY2MtOWMwMC1iOTI0NDhlYWU4NDYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI0MTNmNjllZC04OGI3LTRkZmQtYmEyNC1mNDc4ODA1ZmVkMWYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "SharedIntegrationRuntime",

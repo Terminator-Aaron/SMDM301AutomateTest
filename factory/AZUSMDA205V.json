@@ -1,0 +1,9 @@
+{
+	"name": "AZUSMDA205V",
+	"location": "eastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "15a5ceb1-c905-4732-94dc-46f5fe4813ad",
+		"tenantId": "97f55d35-1929-4acf-9c11-d7aaf05b6756"
+	}
+}
