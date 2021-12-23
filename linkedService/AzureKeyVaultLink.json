@@ -1,0 +1,10 @@
+{
+	"name": "AzureKeyVaultLink",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://AZUSMDA202V.vault.azure.net/"
+		}
+	}
+}
