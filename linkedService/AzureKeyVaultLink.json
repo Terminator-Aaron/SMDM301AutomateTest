@@ -5,6 +5,7 @@
 		"type": "AzureKeyVault",
 		"typeProperties": {
 			"baseUrl": "https://AZUSMDA202V.vault.azure.net/"
-		}
+		},
+		"description": "aa"
 	}
 }
