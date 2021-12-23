@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_6h9",
+				"name": "Copy_kzo",
 				"type": "Copy",
 				"dependsOn": [
 					{
@@ -33,7 +33,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "SELECT  STD_JOB_CD, STD_JOB_DESP, WK_GRP_CD,GC_WORK_NATURE_LVL1_CD,GC_WORK_NATURE_LVL2_CD,ESTIMATE_JOB_DUR\nFROM xls_v_Standard_Job\nWHERE GC_WORK_NATURE_LVL1_CD='CM'\n",
+						"sqlReaderQuery": "SELECT Distinct  STD_JOB_CD, STD_JOB_DESP, WK_GRP_CD,GC_WORK_NATURE_LVL1_CD,GC_WORK_NATURE_LVL2_CD,ESTIMATE_JOB_DUR\nFROM xls_v_Standard_Job\nWHERE GC_WORK_NATURE_LVL1_CD in ('CM')",
 						"partitionOption": "None"
 					},
 					"sink": {
@@ -41,70 +41,88 @@
 						"preCopyScript": "TRUNCATE TABLE dbo.Attunity_StandardJob"
 					},
 					"enableStaging": false,
+					"validateDataConsistency": false,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
 							{
 								"source": {
 									"name": "STD_JOB_CD",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "StandardJobCode",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "STD_JOB_DESP",
-									"type": "String"
-								},
-								"sink": {
-									"name": "StandardJobDesp",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
 									"name": "WK_GRP_CD",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "WorkGroupCode",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
 									"name": "GC_WORK_NATURE_LVL1_CD",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "WorkNatureLevel1",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
 									"name": "GC_WORK_NATURE_LVL2_CD",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "WorkNatureLevel2",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
 									"name": "ESTIMATE_JOB_DUR",
-									"type": "Int16"
+									"type": "Int16",
+									"physicalType": "smallint"
 								},
 								"sink": {
 									"name": "EstimateJobDuration",
-									"type": "Int32"
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "STD_JOB_DESP",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "StandardJobDesp",
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							}
-						]
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
 					}
 				},
 				"inputs": [
@@ -135,7 +153,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "SELECT  STD_JOB_CD, STD_JOB_DESP, WK_GRP_CD,GC_WORK_NATURE_LVL1_CD,GC_WORK_NATURE_LVL2_CD,ESTIMATE_JOB_DUR\nFROM xls_v_Standard_Job\nWHERE GC_WORK_NATURE_LVL1_CD='CM'\n",
+						"sqlReaderQuery": "SELECT Top 1  STD_JOB_CD, STD_JOB_DESP, WK_GRP_CD,GC_WORK_NATURE_LVL1_CD,GC_WORK_NATURE_LVL2_CD,ESTIMATE_JOB_DUR\nFROM xls_v_Standard_Job\nWHERE GC_WORK_NATURE_LVL1_CD in ('CM')",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -155,7 +173,7 @@
 			}
 		},
 		"annotations": [],
-		"lastPublishTime": "2021-11-17T14:16:47Z"
+		"lastPublishTime": "2021-09-09T09:34:30Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

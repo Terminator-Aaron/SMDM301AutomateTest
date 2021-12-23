@@ -1,37 +1,33 @@
 {
 	"name": "SourceDataset_Attunity_EquipmentClassAssocCode",
 	"properties": {
-		"description": "Connect to your data source store.",
 		"linkedServiceName": {
-			"referenceName": "Attunity",
+			"referenceName": "LocalServer",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "SqlServerTable",
-		"structure": [
+		"schema": [
 			{
 				"name": "EQUIP_CLASS_ID",
-				"type": "Int64"
+				"type": "bigint",
+				"precision": 19
 			},
 			{
 				"name": "EQUIP_CLASS_CD",
-				"type": "String"
+				"type": "varchar"
 			},
 			{
 				"name": "TYPE",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "CODE",
-				"type": "String"
+				"type": "nvarchar"
 			},
 			{
 				"name": "DESP",
-				"type": "String"
-			},
-			{
-				"name": "ParentCode",
-				"type": "Int32"
+				"type": "nvarchar"
 			}
 		]
 	},

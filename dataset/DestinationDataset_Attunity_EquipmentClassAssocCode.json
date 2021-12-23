@@ -2,7 +2,7 @@
 	"name": "DestinationDataset_Attunity_EquipmentClassAssocCode",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "SMD",
+			"referenceName": "SMFtDatabase",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -11,44 +11,27 @@
 			{
 				"name": "ID",
 				"type": "int",
-				"precision": 10,
-				"scale": 0
+				"precision": 10
 			},
 			{
 				"name": "EQUIP_CLASS_ID",
-				"type": "nvarchar",
-				"precision": 0,
-				"scale": 0
+				"type": "nvarchar"
 			},
 			{
 				"name": "EQUIP_CLASS_CD",
-				"type": "nvarchar",
-				"precision": 0,
-				"scale": 0
+				"type": "nchar"
 			},
 			{
 				"name": "TYPE",
-				"type": "nvarchar",
-				"precision": 0,
-				"scale": 0
+				"type": "nvarchar"
 			},
 			{
 				"name": "CODE",
-				"type": "nvarchar",
-				"precision": 0,
-				"scale": 0
+				"type": "nvarchar"
 			},
 			{
 				"name": "DESP",
-				"type": "nvarchar",
-				"precision": 0,
-				"scale": 0
-			},
-			{
-				"name": "ParentCode",
-				"type": "nvarchar",
-				"precision": 0,
-				"scale": 0
+				"type": "nvarchar"
 			}
 		],
 		"typeProperties": {

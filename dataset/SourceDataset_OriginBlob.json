@@ -1,9 +1,8 @@
 {
 	"name": "SourceDataset_OriginBlob",
 	"properties": {
-		"description": "Connection to your data source store. ",
 		"linkedServiceName": {
-			"referenceName": "AzureBolbStorage",
+			"referenceName": "AzureBlobStorage",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],

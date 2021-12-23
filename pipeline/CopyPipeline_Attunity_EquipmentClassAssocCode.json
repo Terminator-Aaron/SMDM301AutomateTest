@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_z4k",
+				"name": "Copy_czo",
 				"type": "Copy",
 				"dependsOn": [
 					{
@@ -38,67 +38,79 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "TRUNCATE TABLE dbo.Attunity_EquipmentClassAssocCode"
+						"preCopyScript": "truncate table dbo.Attunity_EquipmentClassAssocCode"
 					},
 					"enableStaging": false,
+					"validateDataConsistency": false,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
 							{
 								"source": {
-									"name": "EQUIP_CLASS_ID"
+									"name": "EQUIP_CLASS_ID",
+									"type": "Int64",
+									"physicalType": "bigint"
 								},
 								"sink": {
 									"name": "EQUIP_CLASS_ID",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "EQUIP_CLASS_CD"
+									"name": "EQUIP_CLASS_CD",
+									"type": "String",
+									"physicalType": "varchar"
 								},
 								"sink": {
 									"name": "EQUIP_CLASS_CD",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nchar"
 								}
 							},
 							{
 								"source": {
-									"name": "TYPE"
+									"name": "TYPE",
+									"type": "String",
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "TYPE",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "CODE"
+									"name": "CODE",
+									"type": "String",
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "CODE",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "DESP"
+									"name": "DESP",
+									"type": "String",
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "DESP",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "ParentCode"
-								},
-								"sink": {
-									"name": "ParentCode",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							}
-						]
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
 					}
 				},
 				"inputs": [
@@ -149,7 +161,7 @@
 			}
 		},
 		"annotations": [],
-		"lastPublishTime": "2021-11-17T14:12:27Z"
+		"lastPublishTime": "2021-09-09T09:45:13Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

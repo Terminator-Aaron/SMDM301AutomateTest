@@ -41,14 +41,75 @@
 						"preCopyScript": "TRUNCATE TABLE dbo.Attunity_CM_InitialDelaySetting"
 					},
 					"enableStaging": false,
+					"validateDataConsistency": false,
 					"translator": {
 						"type": "TabularTranslator",
-						"columnMappings": {
-							"CTX_ID1": "EQUIP_CLASS_ID",
-							"EQUIP_CLASS_CD": "EQUIP_CLASS_CD",
-							"CTX_ID2": "WorkNatureLevel1",
-							"CTX_ID3": "WorkNatureLevel2",
-							"CTX_ID4": "StandardJobCode"
+						"mappings": [
+							{
+								"source": {
+									"name": "CTX_ID1",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "EQUIP_CLASS_ID",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EQUIP_CLASS_CD",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "EQUIP_CLASS_CD",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "CTX_ID2",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "WorkNatureLevel1",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "CTX_ID3",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "WorkNatureLevel2",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "CTX_ID4",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "StandardJobCode",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
 						}
 					}
 				},
@@ -100,7 +161,7 @@
 			}
 		},
 		"annotations": [],
-		"lastPublishTime": "2021-11-17T03:52:59Z"
+		"lastPublishTime": "2021-09-09T09:40:57Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

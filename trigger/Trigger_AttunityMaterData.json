@@ -6,19 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "CopyPipeline_Attunity_AxleNo",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "CopyPipeline_Attunity_BogieNo",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "CopyPipeline_Attunity_CarNo",
+					"referenceName": "CopyPipeline_AttunityAxleNo",
 					"type": "PipelineReference"
 				},
 				"parameters": {
@@ -28,7 +16,7 @@
 			},
 			{
 				"pipelineReference": {
-					"referenceName": "CopyPipeline_Attunity_CM_InitialDelaySetting",
+					"referenceName": "CopyPipeline_AttunityCarNo",
 					"type": "PipelineReference"
 				},
 				"parameters": {
@@ -38,7 +26,7 @@
 			},
 			{
 				"pipelineReference": {
-					"referenceName": "CopyPipeline_Attunity_EquipmentClassAssocCode",
+					"referenceName": "CopyPipeline_AttunityEquipmentNo",
 					"type": "PipelineReference"
 				},
 				"parameters": {
@@ -48,44 +36,12 @@
 			},
 			{
 				"pipelineReference": {
-					"referenceName": "CopyPipeline_Attunity_EquipmentNo",
+					"referenceName": "CopyPipeline_AttuntiyBogieNo",
 					"type": "PipelineReference"
 				},
 				"parameters": {
 					"windowStart": "2019-09-09",
 					"windowEnd": "2029-09-09"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "CopyPipeline_Attunity_FailCodeWithEquipNo",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"windowStart": "2019-09-09",
-					"windowEnd": "2029-09-09"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "CopyPipeline_Attunity_IMTE",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "CopyPipeline_Attunity_StandardJob",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"windowStart": "2019-09-09",
-					"windowEnd": "2029-09-09"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "CopyPipeline_Attunity_SYS_GENERIC_CODE",
-					"type": "PipelineReference"
 				}
 			}
 		],

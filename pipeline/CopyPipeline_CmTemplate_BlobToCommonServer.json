@@ -38,9 +38,6 @@
 								"type": "Expression"
 							},
 							"wildcardFileName": "*"
-						},
-						"formatSettings": {
-							"type": "BinaryReadSettings"
 						}
 					},
 					"sink": {
@@ -74,7 +71,7 @@
 			}
 		},
 		"annotations": [],
-		"lastPublishTime": "2021-11-17T07:16:11Z"
+		"lastPublishTime": "2021-04-10T01:51:46Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

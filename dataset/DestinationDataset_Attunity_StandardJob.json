@@ -2,7 +2,7 @@
 	"name": "DestinationDataset_Attunity_StandardJob",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "SMD",
+			"referenceName": "SMFtDatabase",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],

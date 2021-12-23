@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_qf8",
+				"name": "Copy_ekj",
 				"type": "Copy",
 				"dependsOn": [
 					{
@@ -33,68 +33,84 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "SELECT \r\n  LINE_CD AS [Code], \r\n  LINE_NAME AS [Name],  \r\n  'LINE' As [Type],\r\n  '' ParentCode,\r\n  '' DESP\r\nFROM CO_LINE\r\n  UNION\r\nSELECT LOC_CD AS [Code], \r\n  LOC_NAME AS [Name],  \r\n  'Location_DEPOT' As [Type],\r\n  '' ParentCode,\r\n  '' DESP\r\nFROM\r\n  CO_LOCATION\r\n  where GC_LOC_TYPE_CD='DEPOT'\r\n  UNION\r\nSELECT CODE, '' as [Name], 'WORK_NATURE_Level1' AS [Type], ''  ParentCode, DESP\r\nFROM SA_SYS_GENERIC_CODE WHERE CODE in ('PM', 'CM') AND TYPE = 'WORK_NATURE'\r\nUNION\r\nSELECT CODE, '' as [Name], 'WORK_NATURE_Level2_PM' AS [Type], 'PM'  ParentCode, DESP\r\nFROM SA_SYS_GENERIC_CODE \r\nWHERE PARENT_GC_ID in \r\n(SELECT GC_ID FROM SA_SYS_GENERIC_CODE CODE WHERE  CODE = 'PM' AND TYPE = 'WORK_NATURE')\r\nUNION\r\nSELECT CODE, '' as [Name], 'WORK_NATURE_Level2_CM' AS [Type], 'CM'  ParentCode, DESP\r\nFROM SA_SYS_GENERIC_CODE \r\nWHERE PARENT_GC_ID in \r\n(SELECT GC_ID FROM SA_SYS_GENERIC_CODE CODE WHERE  CODE = 'CM' AND TYPE = 'WORK_NATURE')\r\n",
+						"sqlReaderQuery": "SELECT \n  LINE_CD AS [Code], \n  LINE_NAME AS [Name],  \n  'LINE' As [Type],\n  '' ParentCode,\n  '' DESP\nFROM CO_LINE\n  UNION\nSELECT LOC_CD AS [Code], \n  LOC_NAME AS [Name],  \n  'Location_DEPOT' As [Type],\n  '' ParentCode,\n  '' DESP\nFROM\n  CO_LOCATION\n  where GC_LOC_TYPE_CD='DEPOT'\n  UNION\nSELECT CODE, '' as [Name], 'WORK_NATURE_Level1' AS [Type], ''  ParentCode, DESP\nFROM SA_SYS_GENERIC_CODE WHERE CODE in ('PM', 'CM') AND TYPE = 'WORK_NATURE'\nUNION\nSELECT CODE, '' as [Name], 'WORK_NATURE_Level2_PM' AS [Type], 'PM'  ParentCode, DESP\nFROM SA_SYS_GENERIC_CODE \nWHERE PARENT_GC_ID in \n(SELECT GC_ID FROM SA_SYS_GENERIC_CODE CODE WHERE  CODE = 'PM' AND TYPE = 'WORK_NATURE')\nUNION\nSELECT CODE, '' as [Name], 'WORK_NATURE_Level2_CM' AS [Type], 'CM'  ParentCode, DESP\nFROM SA_SYS_GENERIC_CODE \nWHERE PARENT_GC_ID in \n(SELECT GC_ID FROM SA_SYS_GENERIC_CODE CODE WHERE  CODE = 'CM' AND TYPE = 'WORK_NATURE')",
 						"partitionOption": "None"
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "TRUNCATE TABLE dbo.Attunity_EquipmentClassAssocCode"
+						"preCopyScript": "TRUNCATE TABLE Attunity_SYS_GENERIC_CODE"
 					},
 					"enableStaging": false,
+					"validateDataConsistency": false,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
 							{
 								"source": {
 									"name": "Code",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "Code",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
 									"name": "Name",
-									"type": "String"
+									"type": "String",
+									"physicalType": "varchar"
 								},
 								"sink": {
 									"name": "Name",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
 									"name": "Type",
-									"type": "String"
+									"type": "String",
+									"physicalType": "varchar"
 								},
 								"sink": {
 									"name": "Type",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
 									"name": "ParentCode",
-									"type": "String"
+									"type": "String",
+									"physicalType": "varchar"
 								},
 								"sink": {
 									"name": "ParentCode",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
 									"name": "DESP",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								},
 								"sink": {
 									"name": "DESP",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							}
-						]
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
 					}
 				},
 				"inputs": [
@@ -136,8 +152,16 @@
 				}
 			}
 		],
+		"parameters": {
+			"windowStart": {
+				"type": "String"
+			},
+			"windowEnd": {
+				"type": "String"
+			}
+		},
 		"annotations": [],
-		"lastPublishTime": "2021-11-17T14:19:35Z"
+		"lastPublishTime": "2021-09-09T09:54:33Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

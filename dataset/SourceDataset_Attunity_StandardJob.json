@@ -1,13 +1,39 @@
 {
 	"name": "SourceDataset_Attunity_StandardJob",
 	"properties": {
-		"description": "Connect to your data source store.",
 		"linkedServiceName": {
-			"referenceName": "Attunity",
+			"referenceName": "LocalServer",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "SqlServerTable"
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "STD_JOB_CD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "STD_JOB_DESP",
+				"type": "nvarchar"
+			},
+			{
+				"name": "WK_GRP_CD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "GC_WORK_NATURE_LVL1_CD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "GC_WORK_NATURE_LVL2_CD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ESTIMATE_JOB_DUR",
+				"type": "smallint",
+				"precision": 5
+			}
+		]
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
 }

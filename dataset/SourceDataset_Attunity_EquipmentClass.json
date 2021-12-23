@@ -2,7 +2,7 @@
 	"name": "SourceDataset_Attunity_EquipmentClass",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "Attunity",
+			"referenceName": "LocalServer",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],

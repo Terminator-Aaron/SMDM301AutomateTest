@@ -1,9 +1,8 @@
 {
 	"name": "SourceDataset_cmTemplate_Blob",
 	"properties": {
-		"description": "Connection to your data destination store.  ",
 		"linkedServiceName": {
-			"referenceName": "AzureBolbStorage",
+			"referenceName": "AzureBlobStorage",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],

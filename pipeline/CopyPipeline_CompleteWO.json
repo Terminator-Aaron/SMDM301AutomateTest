@@ -1,11 +1,9 @@
 {
 	"name": "CopyPipeline_CompleteWO",
 	"properties": {
-		"description": "Copy new and changed files only by using LastModifiedDate",
 		"activities": [
 			{
-				"name": "CopyNewFiles",
-				"description": "Copy new and changed files only by using LastModifiedDate",
+				"name": "Copy_esd",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -15,7 +13,16 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "smd-workorderfile//"
+					},
+					{
+						"name": "Destination",
+						"value": "CompleteWO/New/"
+					}
+				],
 				"typeProperties": {
 					"source": {
 						"type": "BinarySource",
@@ -30,33 +37,27 @@
 								"value": "@pipeline().parameters.windowEnd",
 								"type": "Expression"
 							},
-							"wildcardFileName": {
-								"value": "*",
-								"type": "Expression"
-							},
-							"deleteFilesAfterCompletion": false
-						},
-						"formatSettings": {
-							"type": "BinaryReadSettings"
+							"wildcardFileName": "*.*"
 						}
 					},
 					"sink": {
 						"type": "BinarySink",
 						"storeSettings": {
-							"type": "FileServerWriteSettings"
+							"type": "FileServerWriteSettings",
+							"copyBehavior": "PreserveHierarchy"
 						}
 					},
 					"enableStaging": false
 				},
 				"inputs": [
 					{
-						"referenceName": "BinaryDataSourceStore_CompleteWO",
+						"referenceName": "SourceDataset_AzureBS",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "BinaryDataDestinationStore_CompleteWO",
+						"referenceName": "DestinationDataset_esd",
 						"type": "DatasetReference"
 					}
 				]
@@ -64,14 +65,14 @@
 		],
 		"parameters": {
 			"windowStart": {
-				"type": "string"
+				"type": "String"
 			},
 			"windowEnd": {
-				"type": "string"
+				"type": "String"
 			}
 		},
 		"annotations": [],
-		"lastPublishTime": "2021-11-17T03:59:26Z"
+		"lastPublishTime": "2021-04-10T01:51:47Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

@@ -1,41 +1,53 @@
 {
 	"name": "DestinationDataset_Attunity_CM_InitialDelaySetting",
 	"properties": {
-		"description": "Connect to your data destination store.",
 		"linkedServiceName": {
-			"referenceName": "SMD",
+			"referenceName": "SMFtDatabase",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"structure": [
+		"schema": [
 			{
 				"name": "ID",
-				"type": "Int32"
+				"type": "int",
+				"precision": 10,
+				"scale": 0
 			},
 			{
 				"name": "EQUIP_CLASS_ID",
-				"type": "String"
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
 			},
 			{
 				"name": "EQUIP_CLASS_CD",
-				"type": "String"
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
 			},
 			{
 				"name": "WorkNatureLevel1",
-				"type": "String"
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
 			},
 			{
 				"name": "WorkNatureLevel2",
-				"type": "String"
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
 			},
 			{
 				"name": "StandardJobCode",
-				"type": "String"
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
 			}
 		],
 		"typeProperties": {
-			"tableName": "[dbo].[Attunity_CM_InitialDelaySetting]"
+			"schema": "dbo",
+			"table": "Attunity_CM_InitialDelaySetting"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"

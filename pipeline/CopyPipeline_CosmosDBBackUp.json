@@ -42,20 +42,20 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_CosmosDBBackUp",
+						"referenceName": "SourceDataset_5u7",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_CosmosDBBackUp",
+						"referenceName": "DestinationDataset_5u7",
 						"type": "DatasetReference"
 					}
 				]
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2021-11-17T15:18:05Z"
+		"lastPublishTime": "2021-04-10T01:51:46Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
