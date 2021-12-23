@@ -1,0 +1,35 @@
+{
+	"name": "SourceDataset_Attunity_CM_InitialDelaySetting",
+	"properties": {
+		"description": "Connect to your data source store.",
+		"linkedServiceName": {
+			"referenceName": "Attunity",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"structure": [
+			{
+				"name": "EQUIP_CLASS_CD",
+				"type": "String"
+			},
+			{
+				"name": "CTX_ID1",
+				"type": "String"
+			},
+			{
+				"name": "CTX_ID2",
+				"type": "String"
+			},
+			{
+				"name": "CTX_ID3",
+				"type": "String"
+			},
+			{
+				"name": "CTX_ID4",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

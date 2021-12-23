@@ -1,0 +1,98 @@
+{
+	"name": "CopyPipeline_Attunity_FailCodeWithEquipNo",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_6h9",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Lookup1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "."
+					},
+					{
+						"name": "Destination",
+						"value": "dbo.Attunity_StandardJob"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT DISTINCT CODE AS FAILURE_CODE, \n'WORK_NATURE_2' AS FAILURE_CODE_TYPE,\n'' AS EQUIP_NO,\nDESP\nFROM SA_SYS_GENERIC_Code\nWHERE TYPE = 'WORK_NATURE'\nAND PARENT_GC_ID in\n(\n    SELECT GC_ID  FROM SA_SYS_GENERIC_Code WHERE CODE = 'CM'\n)\nUnion \nSELECT DISTINCT CODE, \n'WORK_NATURE_1',\n'',\nDESP\nFROM SA_SYS_GENERIC_Code\nWHERE TYPE = 'WORK_NATURE'\nAND CODE = 'CM'\n",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE dbo.Attunity_FailueCodeWithEquipNo",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_Attunity_FailCodeWithEquipNo",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_Attunity_FailCodeWithEquipNo",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT DISTINCT CODE AS FAILURE_CODE, \n'WORK_NATURE_2' AS FAILURE_CODE_TYPE,\n'' AS EQUIP_NO,\nDESP\nFROM SA_SYS_GENERIC_Code\nWHERE TYPE = 'WORK_NATURE'\nAND PARENT_GC_ID in\n(\n    SELECT GC_ID  FROM SA_SYS_GENERIC_Code WHERE CODE = 'CM'\n)\nUnion \nSELECT DISTINCT CODE, \n'WORK_NATURE_1',\n'',\nDESP\nFROM SA_SYS_GENERIC_Code\nWHERE TYPE = 'WORK_NATURE'\nAND CODE = 'CM'\n",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "SourceDataset_Attunity_FailCodeWithEquipNo",
+						"type": "DatasetReference"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"windowStart": {
+				"type": "String"
+			},
+			"windowEnd": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-11-17T14:48:38Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,161 @@
+{
+	"name": "CopyPipeline_Attunity_StandardJob",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_6h9",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Lookup1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "."
+					},
+					{
+						"name": "Destination",
+						"value": "dbo.Attunity_StandardJob"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT  STD_JOB_CD, STD_JOB_DESP, WK_GRP_CD,GC_WORK_NATURE_LVL1_CD,GC_WORK_NATURE_LVL2_CD,ESTIMATE_JOB_DUR\nFROM xls_v_Standard_Job\nWHERE GC_WORK_NATURE_LVL1_CD='CM'\n",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE dbo.Attunity_StandardJob"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "STD_JOB_CD",
+									"type": "String"
+								},
+								"sink": {
+									"name": "StandardJobCode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "STD_JOB_DESP",
+									"type": "String"
+								},
+								"sink": {
+									"name": "StandardJobDesp",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "WK_GRP_CD",
+									"type": "String"
+								},
+								"sink": {
+									"name": "WorkGroupCode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "GC_WORK_NATURE_LVL1_CD",
+									"type": "String"
+								},
+								"sink": {
+									"name": "WorkNatureLevel1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "GC_WORK_NATURE_LVL2_CD",
+									"type": "String"
+								},
+								"sink": {
+									"name": "WorkNatureLevel2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ESTIMATE_JOB_DUR",
+									"type": "Int16"
+								},
+								"sink": {
+									"name": "EstimateJobDuration",
+									"type": "Int32"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_Attunity_StandardJob",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_Attunity_StandardJob",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "SELECT  STD_JOB_CD, STD_JOB_DESP, WK_GRP_CD,GC_WORK_NATURE_LVL1_CD,GC_WORK_NATURE_LVL2_CD,ESTIMATE_JOB_DUR\nFROM xls_v_Standard_Job\nWHERE GC_WORK_NATURE_LVL1_CD='CM'\n",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "SourceDataset_Attunity_StandardJob",
+						"type": "DatasetReference"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"windowStart": {
+				"type": "String"
+			},
+			"windowEnd": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-11-17T14:16:47Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
