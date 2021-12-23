@@ -1,0 +1,389 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "AZUSMDA201V"
+		},
+		"Attunity_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Attunity'"
+		},
+		"Attunity_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Attunity'"
+		},
+		"AzureBlobStorageBackUp_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorageBackUp'"
+		},
+		"AzureBolbStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBolbStorage'"
+		},
+		"CommonServer_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'CommonServer'"
+		},
+		"CosmosDb_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'CosmosDb'"
+		},
+		"SMD_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SMD'"
+		},
+		"Attunity_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "MTRCORP\\Smdtdbu"
+		},
+		"CommonServer_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "\\\\Twdsmda201v\\smdm"
+		},
+		"CommonServer_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "mtrcorp\\smdtintf"
+		},
+		"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_CarNo_parameters_windowStart": {
+			"type": "string",
+			"defaultValue": "2019-09-09"
+		},
+		"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_CarNo_parameters_windowEnd": {
+			"type": "string",
+			"defaultValue": "2029-09-09"
+		},
+		"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_CM_InitialDelaySetting_parameters_windowStart": {
+			"type": "string",
+			"defaultValue": "2019-09-09"
+		},
+		"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_CM_InitialDelaySetting_parameters_windowEnd": {
+			"type": "string",
+			"defaultValue": "2029-09-09"
+		},
+		"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_EquipmentClassAssocCode_parameters_windowStart": {
+			"type": "string",
+			"defaultValue": "2019-09-09"
+		},
+		"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_EquipmentClassAssocCode_parameters_windowEnd": {
+			"type": "string",
+			"defaultValue": "2029-09-09"
+		},
+		"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_EquipmentNo_parameters_windowStart": {
+			"type": "string",
+			"defaultValue": "2019-09-09"
+		},
+		"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_EquipmentNo_parameters_windowEnd": {
+			"type": "string",
+			"defaultValue": "2029-09-09"
+		},
+		"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_FailCodeWithEquipNo_parameters_windowStart": {
+			"type": "string",
+			"defaultValue": "2019-09-09"
+		},
+		"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_FailCodeWithEquipNo_parameters_windowEnd": {
+			"type": "string",
+			"defaultValue": "2029-09-09"
+		},
+		"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_StandardJob_parameters_windowStart": {
+			"type": "string",
+			"defaultValue": "2019-09-09"
+		},
+		"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_StandardJob_parameters_windowEnd": {
+			"type": "string",
+			"defaultValue": "2029-09-09"
+		},
+		"Trigger_Attunity_EquipmentClass_properties_CopyPipeline_Attunity_EquipmentClass_parameters_windowStart": {
+			"type": "string",
+			"defaultValue": "@{addhours(trigger().scheduledTime, -12)}"
+		},
+		"Trigger_Attunity_EquipmentClass_properties_CopyPipeline_Attunity_EquipmentClass_parameters_windowEnd": {
+			"type": "string",
+			"defaultValue": "@trigger().scheduledTime"
+		},
+		"Trigger_rpa_excel_properties_CopyPipeline_CompleteWO_parameters_windowStart": {
+			"type": "string",
+			"defaultValue": "@{addminutes(trigger().scheduledTime, -5)}"
+		},
+		"Trigger_rpa_excel_properties_CopyPipeline_CompleteWO_parameters_windowEnd": {
+			"type": "string",
+			"defaultValue": "@trigger().scheduledTime"
+		},
+		"Trigger_rpa_excel_properties_CopyPipeline_CmTemplate_BlobToCommonServer_parameters_windowStart": {
+			"type": "string",
+			"defaultValue": "@{addminutes(trigger().scheduledTime, -5)}"
+		},
+		"Trigger_rpa_excel_properties_CopyPipeline_CmTemplate_BlobToCommonServer_parameters_windowEnd": {
+			"type": "string",
+			"defaultValue": "@trigger().scheduledTime"
+		},
+		"Trigger_rpa_excel_properties_CopyPipeline_SyncCmRequest_parameters_windowStart": {
+			"type": "string",
+			"defaultValue": "@{addminutes(trigger().scheduledTime, -5)}"
+		},
+		"Trigger_rpa_excel_properties_CopyPipeline_SyncCmRequest_parameters_windowEnd": {
+			"type": "string",
+			"defaultValue": "@trigger().scheduledTime"
+		},
+		"Trigger_rpa_excel_properties_CopyPipeline_Fitdefitment_parameters_windowStart": {
+			"type": "string",
+			"defaultValue": "@{addminutes(trigger().scheduledTime, -5)}"
+		},
+		"Trigger_rpa_excel_properties_CopyPipeline_Fitdefitment_parameters_windowEnd": {
+			"type": "string",
+			"defaultValue": "@trigger().scheduledTime"
+		},
+		"Trigger_rpa_excel2_properties_CopyPipeline_CompleteWO_parameters_windowStart": {
+			"type": "string",
+			"defaultValue": "@{addminutes(trigger().scheduledTime, -5)}"
+		},
+		"Trigger_rpa_excel2_properties_CopyPipeline_CompleteWO_parameters_windowEnd": {
+			"type": "string",
+			"defaultValue": "@trigger().scheduledTime"
+		},
+		"Trigger_rpa_excel2_properties_CopyPipeline_CmTemplate_BlobToCommonServer_parameters_windowStart": {
+			"type": "string",
+			"defaultValue": "@{addminutes(trigger().scheduledTime, -5)}"
+		},
+		"Trigger_rpa_excel2_properties_CopyPipeline_CmTemplate_BlobToCommonServer_parameters_windowEnd": {
+			"type": "string",
+			"defaultValue": "@trigger().scheduledTime"
+		},
+		"Trigger_rpa_excel2_properties_CopyPipeline_SyncCmRequest_parameters_windowStart": {
+			"type": "string",
+			"defaultValue": "@{addminutes(trigger().scheduledTime, -5)}"
+		},
+		"Trigger_rpa_excel2_properties_CopyPipeline_SyncCmRequest_parameters_windowEnd": {
+			"type": "string",
+			"defaultValue": "@trigger().scheduledTime"
+		},
+		"Trigger_rpa_excel2_properties_CopyPipeline_Fitdefitment_parameters_windowStart": {
+			"type": "string",
+			"defaultValue": "@{addminutes(trigger().scheduledTime, -5)}"
+		},
+		"Trigger_rpa_excel2_properties_CopyPipeline_Fitdefitment_parameters_windowEnd": {
+			"type": "string",
+			"defaultValue": "@trigger().scheduledTime"
+		},
+		"SharedIntegrationRuntime_properties_typeProperties_linkedInfo_resourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/1e984346-edba-4a2c-8888-cf0f668bea68/resourcegroups/EDP_Testing/providers/Microsoft.DataFactory/factories/AZUEDPA204V/integrationruntimes/AZUEDPA201V"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "AZUSMDA201V_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorageBackUp_connectionString": {
+						"value": "[parameters('AzureBlobStorageBackUp_connectionString')]"
+					},
+					"AzureBolbStorage_connectionString": {
+						"value": "[parameters('AzureBolbStorage_connectionString')]"
+					},
+					"CosmosDb_connectionString": {
+						"value": "[parameters('CosmosDb_connectionString')]"
+					},
+					"SMD_connectionString": {
+						"value": "[parameters('SMD_connectionString')]"
+					},
+					"SharedIntegrationRuntime_properties_typeProperties_linkedInfo_resourceId": {
+						"value": "[parameters('SharedIntegrationRuntime_properties_typeProperties_linkedInfo_resourceId')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "AZUSMDA201V_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Attunity_connectionString": {
+						"value": "[parameters('Attunity_connectionString')]"
+					},
+					"Attunity_password": {
+						"value": "[parameters('Attunity_password')]"
+					},
+					"CommonServer_password": {
+						"value": "[parameters('CommonServer_password')]"
+					},
+					"Attunity_properties_typeProperties_userName": {
+						"value": "[parameters('Attunity_properties_typeProperties_userName')]"
+					},
+					"CommonServer_properties_typeProperties_host": {
+						"value": "[parameters('CommonServer_properties_typeProperties_host')]"
+					},
+					"CommonServer_properties_typeProperties_userId": {
+						"value": "[parameters('CommonServer_properties_typeProperties_userId')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'AZUSMDA201V_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "AZUSMDA201V_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_CarNo_parameters_windowStart": {
+						"value": "[parameters('Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_CarNo_parameters_windowStart')]"
+					},
+					"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_CarNo_parameters_windowEnd": {
+						"value": "[parameters('Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_CarNo_parameters_windowEnd')]"
+					},
+					"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_CM_InitialDelaySetting_parameters_windowStart": {
+						"value": "[parameters('Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_CM_InitialDelaySetting_parameters_windowStart')]"
+					},
+					"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_CM_InitialDelaySetting_parameters_windowEnd": {
+						"value": "[parameters('Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_CM_InitialDelaySetting_parameters_windowEnd')]"
+					},
+					"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_EquipmentClassAssocCode_parameters_windowStart": {
+						"value": "[parameters('Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_EquipmentClassAssocCode_parameters_windowStart')]"
+					},
+					"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_EquipmentClassAssocCode_parameters_windowEnd": {
+						"value": "[parameters('Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_EquipmentClassAssocCode_parameters_windowEnd')]"
+					},
+					"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_EquipmentNo_parameters_windowStart": {
+						"value": "[parameters('Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_EquipmentNo_parameters_windowStart')]"
+					},
+					"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_EquipmentNo_parameters_windowEnd": {
+						"value": "[parameters('Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_EquipmentNo_parameters_windowEnd')]"
+					},
+					"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_FailCodeWithEquipNo_parameters_windowStart": {
+						"value": "[parameters('Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_FailCodeWithEquipNo_parameters_windowStart')]"
+					},
+					"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_FailCodeWithEquipNo_parameters_windowEnd": {
+						"value": "[parameters('Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_FailCodeWithEquipNo_parameters_windowEnd')]"
+					},
+					"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_StandardJob_parameters_windowStart": {
+						"value": "[parameters('Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_StandardJob_parameters_windowStart')]"
+					},
+					"Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_StandardJob_parameters_windowEnd": {
+						"value": "[parameters('Trigger_AttunityMaterData_properties_CopyPipeline_Attunity_StandardJob_parameters_windowEnd')]"
+					},
+					"Trigger_Attunity_EquipmentClass_properties_CopyPipeline_Attunity_EquipmentClass_parameters_windowStart": {
+						"value": "[parameters('Trigger_Attunity_EquipmentClass_properties_CopyPipeline_Attunity_EquipmentClass_parameters_windowStart')]"
+					},
+					"Trigger_Attunity_EquipmentClass_properties_CopyPipeline_Attunity_EquipmentClass_parameters_windowEnd": {
+						"value": "[parameters('Trigger_Attunity_EquipmentClass_properties_CopyPipeline_Attunity_EquipmentClass_parameters_windowEnd')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'AZUSMDA201V_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "AZUSMDA201V_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Trigger_rpa_excel_properties_CopyPipeline_CompleteWO_parameters_windowStart": {
+						"value": "[parameters('Trigger_rpa_excel_properties_CopyPipeline_CompleteWO_parameters_windowStart')]"
+					},
+					"Trigger_rpa_excel_properties_CopyPipeline_CompleteWO_parameters_windowEnd": {
+						"value": "[parameters('Trigger_rpa_excel_properties_CopyPipeline_CompleteWO_parameters_windowEnd')]"
+					},
+					"Trigger_rpa_excel_properties_CopyPipeline_CmTemplate_BlobToCommonServer_parameters_windowStart": {
+						"value": "[parameters('Trigger_rpa_excel_properties_CopyPipeline_CmTemplate_BlobToCommonServer_parameters_windowStart')]"
+					},
+					"Trigger_rpa_excel_properties_CopyPipeline_CmTemplate_BlobToCommonServer_parameters_windowEnd": {
+						"value": "[parameters('Trigger_rpa_excel_properties_CopyPipeline_CmTemplate_BlobToCommonServer_parameters_windowEnd')]"
+					},
+					"Trigger_rpa_excel_properties_CopyPipeline_SyncCmRequest_parameters_windowStart": {
+						"value": "[parameters('Trigger_rpa_excel_properties_CopyPipeline_SyncCmRequest_parameters_windowStart')]"
+					},
+					"Trigger_rpa_excel_properties_CopyPipeline_SyncCmRequest_parameters_windowEnd": {
+						"value": "[parameters('Trigger_rpa_excel_properties_CopyPipeline_SyncCmRequest_parameters_windowEnd')]"
+					},
+					"Trigger_rpa_excel_properties_CopyPipeline_Fitdefitment_parameters_windowStart": {
+						"value": "[parameters('Trigger_rpa_excel_properties_CopyPipeline_Fitdefitment_parameters_windowStart')]"
+					},
+					"Trigger_rpa_excel_properties_CopyPipeline_Fitdefitment_parameters_windowEnd": {
+						"value": "[parameters('Trigger_rpa_excel_properties_CopyPipeline_Fitdefitment_parameters_windowEnd')]"
+					},
+					"Trigger_rpa_excel2_properties_CopyPipeline_CompleteWO_parameters_windowStart": {
+						"value": "[parameters('Trigger_rpa_excel2_properties_CopyPipeline_CompleteWO_parameters_windowStart')]"
+					},
+					"Trigger_rpa_excel2_properties_CopyPipeline_CompleteWO_parameters_windowEnd": {
+						"value": "[parameters('Trigger_rpa_excel2_properties_CopyPipeline_CompleteWO_parameters_windowEnd')]"
+					},
+					"Trigger_rpa_excel2_properties_CopyPipeline_CmTemplate_BlobToCommonServer_parameters_windowStart": {
+						"value": "[parameters('Trigger_rpa_excel2_properties_CopyPipeline_CmTemplate_BlobToCommonServer_parameters_windowStart')]"
+					},
+					"Trigger_rpa_excel2_properties_CopyPipeline_CmTemplate_BlobToCommonServer_parameters_windowEnd": {
+						"value": "[parameters('Trigger_rpa_excel2_properties_CopyPipeline_CmTemplate_BlobToCommonServer_parameters_windowEnd')]"
+					},
+					"Trigger_rpa_excel2_properties_CopyPipeline_SyncCmRequest_parameters_windowStart": {
+						"value": "[parameters('Trigger_rpa_excel2_properties_CopyPipeline_SyncCmRequest_parameters_windowStart')]"
+					},
+					"Trigger_rpa_excel2_properties_CopyPipeline_SyncCmRequest_parameters_windowEnd": {
+						"value": "[parameters('Trigger_rpa_excel2_properties_CopyPipeline_SyncCmRequest_parameters_windowEnd')]"
+					},
+					"Trigger_rpa_excel2_properties_CopyPipeline_Fitdefitment_parameters_windowStart": {
+						"value": "[parameters('Trigger_rpa_excel2_properties_CopyPipeline_Fitdefitment_parameters_windowStart')]"
+					},
+					"Trigger_rpa_excel2_properties_CopyPipeline_Fitdefitment_parameters_windowEnd": {
+						"value": "[parameters('Trigger_rpa_excel2_properties_CopyPipeline_Fitdefitment_parameters_windowEnd')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'AZUSMDA201V_ArmTemplate_2')]"
+			]
+		}
+	]
+}
