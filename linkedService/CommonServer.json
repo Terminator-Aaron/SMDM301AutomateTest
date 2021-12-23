@@ -12,6 +12,7 @@
 		"connectVia": {
 			"referenceName": "SharedIntegrationRuntime",
 			"type": "IntegrationRuntimeReference"
-		}
+		},
+		"description": "ff"
 	}
 }
