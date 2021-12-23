@@ -1,0 +1,78 @@
+{
+	"name": "DestinationDataset_j1t",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SMFtDatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "WO_NO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "WO_DESP",
+				"type": "nvarchar"
+			},
+			{
+				"name": "WK_GRP_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "WK_GRP_CD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "WK_GRP_NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PLAN_START_DATE",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "GC_WORK_NATURE_LV1_CD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "GC_WORK_NATURE_LV2_CD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "STD_JOB_CD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EQUIP_NO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EQUIP_CLASS_CD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LOC_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LOC_CD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CREATE_DATE",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Attunity_Bogie"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

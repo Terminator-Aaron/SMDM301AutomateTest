@@ -1,0 +1,18 @@
+{
+	"name": "DestinationDataset_Attunity_CarNo",
+	"properties": {
+		"description": "Connect to your data destination store.",
+		"linkedServiceName": {
+			"referenceName": "SMD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Attunity_Cart"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

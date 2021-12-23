@@ -1,0 +1,17 @@
+{
+	"name": "DestinationDataset_Attunity_EquipmentNo",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SMD",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Attunity_Equipment"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
