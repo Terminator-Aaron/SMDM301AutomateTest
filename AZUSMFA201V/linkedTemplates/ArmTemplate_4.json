@@ -1,0 +1,943 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "AZUSMFA201V"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_Attunity_StandardJob')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LocalServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [
+					{
+						"name": "STD_JOB_CD",
+						"type": "nvarchar"
+					},
+					{
+						"name": "STD_JOB_DESP",
+						"type": "nvarchar"
+					},
+					{
+						"name": "WK_GRP_CD",
+						"type": "nvarchar"
+					},
+					{
+						"name": "GC_WORK_NATURE_LVL1_CD",
+						"type": "nvarchar"
+					},
+					{
+						"name": "GC_WORK_NATURE_LVL2_CD",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ESTIMATE_JOB_DUR",
+						"type": "smallint",
+						"precision": 5
+					}
+				],
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_ab8')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LocalServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_async_workorder')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LocalServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_efy')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LocalServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_h3m')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LocalServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_hou')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LocalServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_hzv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LocalServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_j1t')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LocalServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_j47')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LocalServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_j61')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LocalServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_mwk')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LocalServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_qtp')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LocalServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_so7')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LocalServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_syncCmrequest')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "CommonServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "FileServerLocation",
+						"folderPath": "CreateCMWO/To_ADF"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_y3d')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LocalServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CopyPipeline_AttnuityFailureCode')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy_efy",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "Lookup1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "."
+							},
+							{
+								"name": "Destination",
+								"value": "dbo.Attunity_FailueCode"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"sqlReaderQuery": "Declare @temp Table(EQUIP_CLASS_CD nvarchar(50))\n\nINSERT INTO @temp\nSELECT\n  DISTINCT EQUIP_CLASS_CD \nFROM\n  xls_v_Equipment_Registration\nWHERE\n  OPTN_WK_GRP_CD like 'MR%'\n\nSELECT DISTINCT\n  S.[TYPE] AS FAILURE_CODE_TYPE,\n  S.CODE AS FAILURE_CODE,\n  S.DESP\nFROM\n  EI_EQUIP_CLASS_ITEMS_ASSOC E1 \n  LEFT JOIN SA_SYS_GENERIC_CODE S ON E1.GC_ITEM_CD = S.CODE, \n  EI_EQUIP_CLASS E2\nWHERE\n  E1.EQUIP_CLASS_ID = E2.EQUIP_CLASS_ID\n  AND S.[TYPE] = 'FAILURE_CODE'\n  AND E2.EQUIP_CLASS_CD IN (\n    SELECT\n      DISTINCT EQUIP_CLASS_CD\n    FROM\n      @temp\n  )\nUNION\n\n-- Failure Cause Code\nSELECT DISTINCT\n  S.[TYPE],\n  S.CODE,\n  S.DESP\nFROM\n  EI_EQUIP_CLASS_ITEMS_ASSOC E1 \n  LEFT JOIN SA_SYS_GENERIC_CODE S ON E1.GC_ITEM_CD = S.CODE, \n  EI_EQUIP_CLASS E2\nWHERE\n  E1.EQUIP_CLASS_ID = E2.EQUIP_CLASS_ID\n  AND S.[TYPE] = 'FAILURE_CAUSE_CODE'\n  AND E2.EQUIP_CLASS_CD IN (\n    SELECT\n      DISTINCT EQUIP_CLASS_CD\n    FROM\n      @temp\n  )\nUNION\n-- Failure Action Code\nSELECT DISTINCT\n  S.[TYPE],\n  S.CODE,\n  S.DESP\nFROM\n  EI_EQUIP_CLASS_ITEMS_ASSOC E1 \n  LEFT JOIN SA_SYS_GENERIC_CODE S ON E1.GC_ITEM_CD = S.CODE, \n  EI_EQUIP_CLASS E2\nWHERE\n  E1.EQUIP_CLASS_ID = E2.EQUIP_CLASS_ID\n  AND S.[TYPE] = 'FAILURE_ACTION_CODE'\n  AND E2.EQUIP_CLASS_CD IN (\n    SELECT\n      DISTINCT EQUIP_CLASS_CD\n    FROM\n      @temp\n  ) \n",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "truncate table dbo.Attunity_FailueCode",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "FAILURE_CODE"
+										},
+										"sink": {
+											"name": "FAILURE_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAILURE_CODE_TYPE"
+										},
+										"sink": {
+											"name": "FAILURE_CODE_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DESP"
+										},
+										"sink": {
+											"name": "DESP",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "SourceDataset_efy",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DestinationDataset_efy",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Lookup1",
+						"type": "Lookup",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"sqlReaderQuery": "Declare @temp Table(EQUIP_CLASS_CD nvarchar(50))\n\nINSERT INTO @temp\nSELECT\n  DISTINCT EQUIP_CLASS_CD \nFROM\n  xls_v_Equipment_Registration\nWHERE\n  OPTN_WK_GRP_CD like 'MR%'\n\nSELECT DISTINCT\n  S.[TYPE] AS FAILURE_CODE_TYPE,\n  S.CODE AS FAILURE_CODE,\n  S.DESP\nFROM\n  EI_EQUIP_CLASS_ITEMS_ASSOC E1 \n  LEFT JOIN SA_SYS_GENERIC_CODE S ON E1.GC_ITEM_CD = S.CODE, \n  EI_EQUIP_CLASS E2\nWHERE\n  E1.EQUIP_CLASS_ID = E2.EQUIP_CLASS_ID\n  AND S.[TYPE] = 'FAILURE_CODE'\n  AND E2.EQUIP_CLASS_CD IN (\n    SELECT\n      DISTINCT EQUIP_CLASS_CD\n    FROM\n      @temp\n  )\nUNION\n\n-- Failure Cause Code\nSELECT DISTINCT\n  S.[TYPE],\n  S.CODE,\n  S.DESP\nFROM\n  EI_EQUIP_CLASS_ITEMS_ASSOC E1 \n  LEFT JOIN SA_SYS_GENERIC_CODE S ON E1.GC_ITEM_CD = S.CODE, \n  EI_EQUIP_CLASS E2\nWHERE\n  E1.EQUIP_CLASS_ID = E2.EQUIP_CLASS_ID\n  AND S.[TYPE] = 'FAILURE_CAUSE_CODE'\n  AND E2.EQUIP_CLASS_CD IN (\n    SELECT\n      DISTINCT EQUIP_CLASS_CD\n    FROM\n      @temp\n  )\nUNION\n-- Failure Action Code\nSELECT DISTINCT\n  S.[TYPE],\n  S.CODE,\n  S.DESP\nFROM\n  EI_EQUIP_CLASS_ITEMS_ASSOC E1 \n  LEFT JOIN SA_SYS_GENERIC_CODE S ON E1.GC_ITEM_CD = S.CODE, \n  EI_EQUIP_CLASS E2\nWHERE\n  E1.EQUIP_CLASS_ID = E2.EQUIP_CLASS_ID\n  AND S.[TYPE] = 'FAILURE_ACTION_CODE'\n  AND E2.EQUIP_CLASS_CD IN (\n    SELECT\n      DISTINCT EQUIP_CLASS_CD\n    FROM\n      @temp\n  ) \n",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"dataset": {
+								"referenceName": "SourceDataset_efy",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"parameters": {
+					"windowStart": {
+						"type": "String"
+					},
+					"windowEnd": {
+						"type": "String"
+					}
+				},
+				"annotations": [],
+				"lastPublishTime": "2021-04-10T01:51:46Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SourceDataset_efy')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CopyPipeline_AttunityAxleNo')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy_ab8",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "Lookup1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "."
+							},
+							{
+								"name": "Destination",
+								"value": "dbo.Attunity_Axle"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"sqlReaderQuery": "SELECT DISTINCT(EQUIP_NO) AS AxleNo FROM \n\nEI_EQUIPMENT E1 \n\nLEFT JOIN EI_EQUIP_CLASS E2 on E2.EQUIP_CLASS_ID = E1.EQUIP_CLASS_ID\n\nWHERE EQUIP_CLASS_CD LIKE '%AXLE%'\n\nAND EQUIP_CLASS_CD LIKE 'EMUYS-%' \n\nORDER BY EQUIP_NO\n",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "truncate table dbo.Attunity_Axle"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "AxleNo",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AxleNo",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "SourceDataset_ab8",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DestinationDataset_ab8",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Lookup1",
+						"type": "Lookup",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"sqlReaderQuery": "SELECT DISTINCT(EQUIP_NO) AS AxleNo FROM \n\nEI_EQUIPMENT E1 \n\nLEFT JOIN EI_EQUIP_CLASS E2 on E2.EQUIP_CLASS_ID = E1.EQUIP_CLASS_ID\n\nWHERE EQUIP_CLASS_CD LIKE '%AXLE%'\n\nAND EQUIP_CLASS_CD LIKE 'EMUYS-%' \n\nORDER BY EQUIP_NO\n",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"dataset": {
+								"referenceName": "SourceDataset_ab8",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"parameters": {
+					"windowStart": {
+						"type": "String"
+					},
+					"windowEnd": {
+						"type": "String"
+					}
+				},
+				"annotations": [],
+				"lastPublishTime": "2021-10-27T02:32:38Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SourceDataset_ab8')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CopyPipeline_AttunityCarNo')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy_qtp",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "Lookup1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "."
+							},
+							{
+								"name": "Destination",
+								"value": "dbo.Attunity_Cart"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"sqlReaderQuery": "SELECT EQUIP_CLASS_CD AS CarNo FROM xls_v_Equipment_Registration WHERE EQUIP_CLASS_CD LIKE 'EMUY-SS%' ORDER BY EQUIP_NO;",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "truncate table dbo.Attunity_Cart"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "CarNo",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CarNo",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "SourceDataset_qtp",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DestinationDataset_qtp",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Lookup1",
+						"type": "Lookup",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"sqlReaderQuery": "SELECT EQUIP_CLASS_CD AS CarNo FROM xls_v_Equipment_Registration WHERE EQUIP_CLASS_CD LIKE 'EMUY-SS%' ORDER BY EQUIP_NO;",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"dataset": {
+								"referenceName": "SourceDataset_qtp",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"parameters": {
+					"windowStart": {
+						"type": "String"
+					},
+					"windowEnd": {
+						"type": "String"
+					}
+				},
+				"annotations": [],
+				"lastPublishTime": "2021-04-10T01:51:46Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SourceDataset_qtp')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CopyPipeline_AttunityEquipmentNo')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy_hou",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "Lookup1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "."
+							},
+							{
+								"name": "Destination",
+								"value": "dbo.Attunity_Equipment"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"sqlReaderQuery": "SELECT EQUIP_CLASS_CD AS EquipmentNo FROM xls_v_Equipment_Registration WHERE EQUIP_CLASS_CD LIKE 'EMUYS-%' ORDER BY EQUIP_NO;",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "truncate table dbo.Attunity_Equipment"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "EquipmentNo",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EquipmentNo",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "SourceDataset_hou",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DestinationDataset_hou",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Lookup1",
+						"type": "Lookup",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"sqlReaderQuery": "SELECT EQUIP_CLASS_CD AS EquipmentNo FROM xls_v_Equipment_Registration WHERE EQUIP_CLASS_CD LIKE 'EMUYS-%' ORDER BY EQUIP_NO;",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"dataset": {
+								"referenceName": "SourceDataset_hou",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"parameters": {
+					"windowStart": {
+						"type": "String"
+					},
+					"windowEnd": {
+						"type": "String"
+					}
+				},
+				"annotations": [],
+				"lastPublishTime": "2021-04-10T01:51:46Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SourceDataset_hou')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CopyPipeline_AttunityFailCodeWithEquipNo')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy_enp",
+						"type": "Copy",
+						"dependsOn": [
+							{
+								"activity": "Lookup1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "."
+							},
+							{
+								"name": "Destination",
+								"value": "dbo.Attunity_FailueCodeWithEquipNo"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"sqlReaderQuery": "SELECT DISTINCT CODE AS FAILURE_CODE, \n'WORK_NATURE_2' AS FAILURE_CODE_TYPE,\n'' AS EQUIP_NO,\nDESP\nFROM SA_SYS_GENERIC_Code\nWHERE TYPE = 'WORK_NATURE'\nAND PARENT_GC_ID in\n(\n    SELECT GC_ID  FROM SA_SYS_GENERIC_Code WHERE CODE = 'CM'\n)\nUnion \nSELECT DISTINCT CODE, \n'WORK_NATURE_1',\n'',\nDESP\nFROM SA_SYS_GENERIC_Code\nWHERE TYPE = 'WORK_NATURE'\nAND CODE = 'CM'\n",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "truncate table dbo.Attunity_FailueCodeWithEquipNo",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "FAILURE_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAILURE_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FAILURE_CODE_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FAILURE_CODE_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "EQUIP_NO",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EQUIP_NO",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DESP",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DESP",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "SourceDataset_AttunityFailCodeWithEquipNo",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DestinationDataset_AttunityFailCodeWithEquipNo",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Lookup1",
+						"type": "Lookup",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"sqlReaderQuery": "SELECT DISTINCT CODE AS FAILURE_CODE, \n'WORK_NATURE_2' AS FAILURE_CODE_TYPE,\n'' AS EQUIP_NO,\nDESP\nFROM SA_SYS_GENERIC_Code\nWHERE TYPE = 'WORK_NATURE'\nAND PARENT_GC_ID in\n(\n    SELECT GC_ID  FROM SA_SYS_GENERIC_Code WHERE CODE = 'CM'\n)\nUnion \nSELECT DISTINCT CODE, \n'WORK_NATURE_1',\n'',\nDESP\nFROM SA_SYS_GENERIC_Code\nWHERE TYPE = 'WORK_NATURE'\nAND CODE = 'CM'\n",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"dataset": {
+								"referenceName": "SourceDataset_AttunityFailCodeWithEquipNo",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"parameters": {
+					"windowStart": {
+						"type": "String"
+					},
+					"windowEnd": {
+						"type": "String"
+					}
+				},
+				"annotations": [],
+				"lastPublishTime": "2021-04-10T01:51:49Z"
+			},
+			"dependsOn": []
+		}
+	]
+}
