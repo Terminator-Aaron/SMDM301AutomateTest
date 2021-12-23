@@ -1,9 +1,0 @@
-{
-	"name": "AZUSMFA201V",
-	"location": "eastasia",
-	"identity": {
-		"type": "SystemAssigned",
-		"principalId": "544eb054-3504-4fcd-b5ba-865efea34235",
-		"tenantId": "97f55d35-1929-4acf-9c11-d7aaf05b6756"
-	}
-}
